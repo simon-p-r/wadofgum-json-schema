@@ -1,0 +1,32 @@
+{
+  "name": "wadofgum-json-schema",
+  "version": "0.0.1",
+  "description": "json schema validation for wadofgum models",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "lab -a code -v -t 100 -L"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/simon-p-r/wadofgum-json-schema.git"
+  },
+  "keywords": [
+    "wadofgum",
+    "json",
+    "schema"
+  ],
+  "author": "simon-p-r",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/simon-p-r/wadofgum-json-schema/issues"
+  },
+  "homepage": "https://github.com/simon-p-r/wadofgum-json-schema#readme",
+  "devDependencies": {
+    "code": "^2.0.1",
+    "lab": "^7.1.0",
+    "wadofgum": "^4.0.0"
+  },
+  "dependencies": {
+    "z-schema": "^3.15.4"
+  }
+}
