@@ -11,7 +11,6 @@ Simply provide a json schema for validation and then assign it to the static `sc
 ```js
 const Wadofgum = require('wadofgum');
 const Validation = require('wadofgum-json-schema');
-const Joi = require('joi');
 
 class Model extends Wadofgum.mixin(Validation) {};
 Model.schema = {
