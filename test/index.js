@@ -27,7 +27,7 @@ describe('Validation', () => {
         class User extends Wadofgum.mixin(Validation) {};
         const user = new User();
 
-        user.validate().catch((err) => {
+        user.validate((err, result) => {
 
             expect(err).to.exist();
             expect(err.message).to.contain('No schema');
@@ -55,13 +55,12 @@ describe('Validation', () => {
             }
         };
         const user = new User();
-
-        user.validate().catch((err) => {
+        user.validate((err, result) => {
 
             expect(err).to.exist();
             expect(err.message).to.contain('Schema name');
             done();
-        }).catch(done);
+        });
 
     });
 
@@ -89,16 +88,17 @@ describe('Validation', () => {
             dateOfBirth: '1975-10-01'
         });
 
-        user.validate().then(() => {
+        user.validate((err, result) => {
 
+            expect(err).to.not.exist();
             expect(user.name).to.equal('John');
             expect(user.age).to.equal(40);
             expect(user.dateOfBirth).to.equal('1975-10-01');
             done();
-        }).catch(done);
+        });
     });
 
-    it('should fail validation data against a json schema', (done) => {
+    it('should fail validation with invlaid data against a z-schema', (done) => {
 
         class User extends Wadofgum.mixin(Validation) {};
         User.schema = {
@@ -122,13 +122,12 @@ describe('Validation', () => {
             dateOfBirth: '01/10/1975'
         });
 
-        user.validate().catch((err) => {
+        user.validate((err, result) => {
 
             expect(err).to.exist();
             expect(err.message).to.contain('Validation has failed with message');
             done();
-        }).catch(done);
+        });
     });
-
 
 });

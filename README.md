@@ -4,7 +4,7 @@ A validation mixin for [wadofgum](https://github.com/nlf/wadofgum) using [z-sche
 
 ### Usage
 
-After extending your model with this mixin, instances of your class will have a `validate` method. This method returns a promise that resolves when validation is complete or rejects if validation fails.
+After extending your model with this mixin, instances of your class will have a `validate` method which accepts a callback as its only parameter. 
 
 Simply provide a json schema for validation and then assign it to the static `schema` property on your class.
 
@@ -30,9 +30,9 @@ Model.schema = {
 };
 
 let model = new Model({ name: 'test', age: '45', dateOfBirth: '1975-10-01'});
-model.validate().then(function () {
-  model.name; // 'test'
-  model.age; // 45
-  model.dateOfBirth; // '1975-10-01'
+model.validate((err, result) => {
+    model.name; // 'test'
+    model.age; // 45
+    model.dateOfBirth; // '1975-10-01'
 });
 ```
