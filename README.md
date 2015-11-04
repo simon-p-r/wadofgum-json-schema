@@ -4,7 +4,7 @@ A validation mixin for [wadofgum](https://github.com/nlf/wadofgum) using [z-sche
 
 ### Usage
 
-After extending your model with this mixin, instances of your class will have a `validate` method which accepts a callback as its only parameter. 
+After extending your model with this mixin, instances of your class will have a `validate` method which accepts a callback as its only parameter.
 
 Simply provide a json schema for validation and then assign it to the static `schema` property on your class.
 
@@ -14,19 +14,30 @@ const Validation = require('wadofgum-json-schema');
 
 class Model extends Wadofgum.mixin(Validation) {};
 Model.schema = {
-    type: 'object',
-    properties: {
-        name: {
-            type: 'string'
-        },
-        age: {
-            type: 'integer'
-        },
-        dateOfBirth: {
-            type: 'string',
-            format: 'date'
+    metaSchema: {
+        description: 'Person record schema',
+        type: 'record',
+        base: 'entity',
+        jsonSchema: 'v4',
+        name: 'person',
+        version: 1
+    },
+    schema: {
+        type: 'object',
+        properties: {
+            name: {
+                type: 'string'
+            },
+            age: {
+                type: 'integer'
+            },
+            dateOfBirth: {
+                type: 'string',
+                format: 'date'
+            }
         }
     }
+
 };
 
 let model = new Model({ name: 'test', age: '45', dateOfBirth: '1975-10-01'});
