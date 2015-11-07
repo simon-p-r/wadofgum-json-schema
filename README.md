@@ -11,8 +11,13 @@ Simply provide a json schema for validation and then assign it to the static `sc
 ```js
 const Wadofgum = require('wadofgum');
 const Validation = require('wadofgum-json-schema');
+const ZSchema = require('z-schema');
+const Validator = new ZSchema();
+
 
 class Model extends Wadofgum.mixin(Validation) {};
+
+// Set schema property to class object
 Model.schema = {
     metaSchema: {
         description: 'Person record schema',
@@ -39,6 +44,9 @@ Model.schema = {
     }
 
 };
+
+// Set validator object to class object
+Model.validator = Validator;
 
 let model = new Model({ name: 'test', age: '45', dateOfBirth: '1975-10-01'});
 model.validate((err, result) => {

@@ -5,6 +5,8 @@ const Hoek = require('hoek');
 const Lab = require('lab');
 const Wadofgum = require('wadofgum');
 const Validation = require('../lib/index.js');
+const ZSchema = require('z-schema');
+const Validator = new ZSchema();
 
 // Fixtures
 const PersonSchema = require('./fixtures/person.js');
@@ -51,17 +53,15 @@ describe('Validation', () => {
         });
     });
 
-    it('errors when attempting to validate an invalid model with z-schema', (done) => {
+    it('errors when attempting to validate without a validator property set on class object', (done) => {
 
         class Person extends Wadofgum.mixin(Validation) {};
-        const InvalidSchema = Hoek.clone(PersonSchema);
-        InvalidSchema.schema.properties.person.properties.salutation.format = 'unknown';
-        Person.schema = InvalidSchema;
+        Person.schema = PersonSchema;
         const person = new Person();
         person.validate((err, result) => {
 
             expect(err).to.exist();
-            expect(err.message).to.contain('Schema name');
+            expect(err.message).to.contain('No validator');
             done();
         });
 
@@ -71,6 +71,7 @@ describe('Validation', () => {
 
         class Person extends Wadofgum.mixin(Validation) {};
         Person.schema = PersonSchema;
+        Person.validator = Validator;
         const person = new Person(PersonData);
 
         person.validate((err, result) => {
@@ -86,6 +87,7 @@ describe('Validation', () => {
 
         class Person extends Wadofgum.mixin(Validation) {};
         Person.schema = PersonSchema;
+        Person.validator = Validator;
         PersonData.person.dateOfBirth = '01-10-1975';
         const person = new Person(PersonData);
 
