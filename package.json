@@ -24,11 +24,11 @@
   "devDependencies": {
     "code": "^2.0.1",
     "lab": "^7.2.0",
+    "wadofgum": "^4.1.0",
     "z-schema": "^3.16.0"
   },
   "dependencies": {
     "hoek": "^3.0.1",
-    "joi": "^7.0.0",
-    "wadofgum": "^4.1.0"
+    "joi": "^7.0.0"
   }
 }
