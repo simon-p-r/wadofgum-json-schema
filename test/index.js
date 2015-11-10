@@ -83,9 +83,9 @@ describe('Validation', () => {
         });
     });
 
-    it('should fail validation with invlaid data against a z-schema', (done) => {
+    it('should fail validation with invalid data against a z-schema', (done) => {
 
-        class Person extends Wadofgum.mixin(Validation) {};
+        const Person = class extends Wadofgum.mixin(Validation) {};
         Person.schema = PersonSchema;
         Person.validator = Validator;
         PersonData.person.dateOfBirth = '01-10-1975';
@@ -94,7 +94,8 @@ describe('Validation', () => {
         person.validate((err, result) => {
 
             expect(err).to.exist();
-            expect(err.message).to.contain('Validation has failed with message');
+            expect(err.message).to.contain('JSON schema validation has failed');
+            expect(err.details).to.be.an.array();
             done();
         });
     });

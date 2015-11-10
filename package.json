@@ -1,6 +1,6 @@
 {
   "name": "wadofgum-json-schema",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "json schema validation for wadofgum models",
   "main": "lib/index.js",
   "scripts": {
