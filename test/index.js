@@ -1,7 +1,7 @@
 'use strict';
 
 const Code = require('code');
-const Hoek = require('hoek');
+// const Hoek = require('hoek');
 const Lab = require('lab');
 const Wadofgum = require('wadofgum');
 const Validation = require('../lib/index.js');
@@ -28,17 +28,17 @@ describe('Validation', () => {
         done();
     });
 
-    it('should throw if invalid rawSchema used is invalid', (done) => {
-
-        class Person extends Wadofgum.mixin(Validation) {};
-        const InvalidSchema = Hoek.clone(PersonSchema);
-        delete InvalidSchema.metaSchema;
-        expect(() => {
-
-            Person.schema = InvalidSchema;
-        }).to.throw(Error);
-        done();
-    });
+    // it('should throw if invalid rawSchema used is invalid', (done) => {
+    //
+    //     class Person extends Wadofgum.mixin(Validation) {};
+    //     const InvalidSchema = Hoek.clone(PersonSchema);
+    //     delete InvalidSchema.metaSchema;
+    //     expect(() => {
+    //
+    //         Person.schema = InvalidSchema;
+    //     }).to.throw(Error);
+    //     done();
+    // });
 
     it('errors when attempting to validate a model with no schema', (done) => {
 
