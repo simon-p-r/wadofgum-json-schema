@@ -6,6 +6,7 @@ module.exports = {
         description: 'Person record schema',
         type: 'record',
         base: 'entity',
+        rids: ['person.givenName', 'person.familyName'],
         jsonSchema: 'v4',
         name: 'person',
         version: 1

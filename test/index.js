@@ -28,17 +28,34 @@ describe('Validation', () => {
         done();
     });
 
-    // it('should throw if invalid rawSchema used is invalid', (done) => {
-    //
-    //     class Person extends Wadofgum.mixin(Validation) {};
-    //     const InvalidSchema = Hoek.clone(PersonSchema);
-    //     delete InvalidSchema.metaSchema;
-    //     expect(() => {
-    //
-    //         Person.schema = InvalidSchema;
-    //     }).to.throw(Error);
-    //     done();
-    // });
+    it('should validate a simple schema', (done) => {
+
+        class Person extends Wadofgum.mixin(Validation) {};
+        Person.schema = {
+            metaSchema: {
+                name: 'test',
+                type: 'record',
+                jsonSchema: 'v4',
+                version: 1,
+                base: 'example'
+            },
+            schema: {
+                recType: {
+                    type: 'string'
+                }
+            }
+        };
+        Person.validator = Validator;
+        const person = new Person({
+            recType: 'test'
+        });
+        person.validate((err, result) => {
+
+            expect(err).to.not.exist();
+            expect(result).to.be.true();
+            done();
+        });
+    });
 
     it('errors when attempting to validate a model with no schema', (done) => {
 
