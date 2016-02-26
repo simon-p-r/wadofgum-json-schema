@@ -1,12 +1,13 @@
 'use strict';
 
 const Code = require('code');
-// const Hoek = require('hoek');
 const Lab = require('lab');
 const Wadofgum = require('wadofgum');
 const Validation = require('../lib/index.js');
 const ZSchema = require('z-schema');
 const Validator = new ZSchema();
+
+
 
 // Fixtures
 const PersonSchema = require('./fixtures/person.js');
@@ -46,9 +47,11 @@ describe('Validation', () => {
             }
         };
         Person.validator = Validator;
+
         const person = new Person({
             recType: 'test'
         });
+
         person.validate((err, result) => {
 
             expect(err).to.not.exist();
@@ -75,6 +78,7 @@ describe('Validation', () => {
         class Person extends Wadofgum.mixin(Validation) {};
         Person.schema = PersonSchema;
         const person = new Person();
+
         person.validate((err, result) => {
 
             expect(err).to.exist();
@@ -105,8 +109,10 @@ describe('Validation', () => {
         const Person = class extends Wadofgum.mixin(Validation) {};
         Person.schema = PersonSchema;
         Person.validator = Validator;
-        PersonData.person.dateOfBirth = '01-10-1975';
         const person = new Person(PersonData);
+
+        PersonData.person.dateOfBirth = '01-10-1975';
+
 
         person.validate((err, result) => {
 
