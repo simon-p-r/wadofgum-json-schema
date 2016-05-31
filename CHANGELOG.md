@@ -1,5 +1,7 @@
 ## Changelog
 
++ 1.1.0 - added coveralls
+
 + 1.0.1 - updated devDependencies and travis file
 
 + 1.0.0 - major update due to major bump in wadofgum, meta set has been removed upstream so constructor props for class used to store schema, validator and meta about model
