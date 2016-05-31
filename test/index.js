@@ -5,8 +5,6 @@ const Lab = require('lab');
 const Wadofgum = require('wadofgum');
 const Validation = require('../lib/index.js');
 const ZSchema = require('z-schema');
-const Validator = new ZSchema();
-
 
 
 // Fixtures
@@ -46,7 +44,7 @@ describe('Validation', () => {
                 }
             }
         };
-        Person.validator = Validator;
+        Person.validator = new ZSchema();
 
         const person = new Person({
             recType: 'test'
@@ -92,7 +90,7 @@ describe('Validation', () => {
 
         class Person extends Wadofgum.mixin(Validation) {};
         Person.schema = PersonSchema;
-        Person.validator = Validator;
+        Person.validator = new ZSchema();
         const person = new Person(PersonData);
 
         person.validate((err, result) => {
@@ -108,7 +106,7 @@ describe('Validation', () => {
 
         const Person = class extends Wadofgum.mixin(Validation) {};
         Person.schema = PersonSchema;
-        Person.validator = Validator;
+        Person.validator = new ZSchema();
         const person = new Person(PersonData);
 
         PersonData.person.dateOfBirth = '01-10-1975';
