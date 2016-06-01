@@ -1,5 +1,7 @@
 ## Changelog
 
++ 1.1.1 - added new coveralls badge link
+
 + 1.1.0 - added coveralls
 
 + 1.0.1 - updated devDependencies and travis file
