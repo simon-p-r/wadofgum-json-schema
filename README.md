@@ -1,4 +1,5 @@
-## wadofgum-json-schema [![Build Status](https://travis-ci.org/simon-p-r/wadofgum-json-schema.svg)](https://travis-ci.org/simon-pr/wadofgum-json-schema)
+## wadofgum-json-schema
+[![Build Status](https://travis-ci.org/simon-p-r/wadofgum-json-schema.svg)](https://travis-ci.org/simon-pr/wadofgum-json-schema)
 [![Coverage Status](https://coveralls.io/repos/github/simon-p-r/wadofgum-json-schema/badge.svg?branch=master)](https://coveralls.io/github/simon-p-r/wadofgum-json-schema?branch=master)
 
 A validation mixin for [wadofgum](https://github.com/nlf/wadofgum) using [z-schema](https://github.com/zaggino/z-schema).
