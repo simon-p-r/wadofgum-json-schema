@@ -1,5 +1,7 @@
 ## Changelog
 
++ 1.2.0 - cleaned up devDependencies
+
 + 1.1.1 - added new coveralls badge link
 
 + 1.1.0 - added coveralls
