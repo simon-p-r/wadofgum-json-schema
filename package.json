@@ -1,6 +1,6 @@
 {
   "name": "wadofgum-json-schema",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "json schema validation for wadofgum models",
   "main": "lib/index.js",
   "scripts": {
@@ -27,7 +27,6 @@
     "coveralls": "^2.11.14",
     "lab": "^11.1.0",
     "wadofgum": "^4.1.0",
-    "wadofgum-mongodb": "^1.2.1",
     "z-schema": "^3.18.0"
   },
   "dependencies": {}
