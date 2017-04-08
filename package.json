@@ -25,8 +25,8 @@
   "devDependencies": {
     "code": "^4.0.0",
     "coveralls": "^2.11.14",
-    "lab": "^11.1.0",
-    "wadofgum": "^4.1.0",
+    "lab": "^13.0.1",
+    "wadofgum": "^5.1.0",
     "z-schema": "^3.18.0"
   },
   "dependencies": {}
